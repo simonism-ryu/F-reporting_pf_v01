@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: ogk-merge-test
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -b 0.0.0.0:$PORT -w 2 -t 180 app:app
+    envVars:
+      - key: MONTH
+        value: "26년 5월 (테스트)"
